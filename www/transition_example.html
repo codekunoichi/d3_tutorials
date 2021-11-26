@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<style>
+    #container {
+        height: 100px;
+        width: 100px;
+        background-color: black;
+    }
+</style>
+<script src="d3.min.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        d3.select("#container")
+          .transition()
+          .duration(6000) //6 seconds delay
+          .style("background-color", "red");
+    </script>
+</body>
+</html>
