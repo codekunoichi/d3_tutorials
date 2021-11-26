@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <script src="d3.min.js"></script>
+</head>
+<body>
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <script>
+        var data = [100, 200, 300, 400];
+        var selection = d3.select("body")
+                .selectAll("p")
+                .data(data)
+                .enter()
+                .append("p");
+        var paragraph = d3.select("body")
+                .selectAll("p")
+                .data(data)
+                .text(function (d, i) {
+                    console.log("d: " + d);
+                    console.log("i: " + i);
+                    console.log("this: " + this);
+
+                    return d;
+                });
+    </script>
+</body>
+</html>
