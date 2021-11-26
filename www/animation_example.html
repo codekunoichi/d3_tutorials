@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <script src="d3.min.js"></script>
+</head>
+<body>
+    <script>
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", 500)
+            .attr("height", 500);
+    
+    
+        var bar1 = svg.append("rect")
+            .attr("fill", "blue")
+            .attr("x", 100)
+            .attr("y", 20)
+            .attr("height", 20)
+            .attr("width", 10)
+    
+        var bar2 = svg.append("rect")
+            .attr("fill", "blue")
+            .attr("x", 120)
+            .attr("y", 20)
+            .attr("height", 20)
+            .attr("width", 10)
+    
+        update();
+    
+    function update() {
+        bar1.transition()
+            .ease(d3.easeLinear)
+            .duration(6000) //draw the line for 6 seconds
+            .attr("height",100)
+    
+        bar2.transition()
+            .ease(d3.easeLinear)
+            .duration(6000) //draw the line for 6 seconds
+            .delay(5000) //wait for 5 seconds before finishing the drawing
+            .attr("height",500) //500 px long the second bar
+    }
+    </script>
+
+
+
+</body>
+</html>
