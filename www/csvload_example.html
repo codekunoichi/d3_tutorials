@@ -5,6 +5,9 @@
 </head>
 <body>
 <script>
+    // Following loads the CSV file in the current directory
+    // for each row, we will print the name and age using the
+    // keys established
     d3.csv("employee.csv", function(data) {
         console.log(data);
         console.log(data["Name"]);
