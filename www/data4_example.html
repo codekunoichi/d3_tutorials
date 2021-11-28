@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<script src="d3.min.js"></script>
+</head>
+<body>
+    <body>
+        <script>
+            var data = [4, 1, 6, 2, 8, 9];
+            var body = d3.select("body")
+                        .selectAll("span")
+                        .data(data)
+                        .enter() // Add the missing span element for the 6 array element since no span exists
+                        .append("span") //appends the above created span element to the body DOM
+                        .text(function(d) { return d + " "; });
+        </script>
+        </body>
+</body>
+</html>
