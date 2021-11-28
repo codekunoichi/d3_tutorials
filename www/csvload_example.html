@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head>
+<script src="d3.min.js"></script>
+</head>
+<body>
+<script>
+    d3.csv("employee.csv", function(data) {
+        console.log(data);
+        console.log(data["Name"]);
+        console.log(data[" Age"]); //Observe the first space, since the employee.csv header had the same space, the key has the extra space
+    });
+    </script>
+</body>
+</html>
