@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+<script src="d3.min.js"></script>
+</head>
+<body>
+    <p>D3 Tutorials</p>
+
+    <script>
+            var myData = ["Hello World!"];
+         
+            var p = d3.select("body")
+                .selectAll("p")
+                .data(myData)
+                .text(function (d) {
+                    return d;
+                });
+    </script>
+</body>
+</html>
