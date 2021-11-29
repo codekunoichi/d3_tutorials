@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<script src="d3.min.js"></script>
+</head>
+
+<body>
+
+    <p>Following is an example of SVG using ellipse</p>
+    <svg width="500" height="200">
+        <ellipse cx="250" cy="25" rx="100" ry="25"/>
+    </svg>
+
+    <p>Following is an example of SVG using circle</p>
+    <svg width="500" height="200">
+        <circle cx="250" cy="50" r="50"/>
+    </svg>
+
+    <p>Following is an example for line with gradient</p>
+    <svg width="500" height="100">
+        <line x1="100" y1="50" x2="500" y2="250" stroke="black" />
+    </svg>
+
+    <p>Following is an example of SVG using rect</p>
+    <svg width="500" height="300">
+        <rect x="0" y="0" width="400" height="200"></rect>
+    </svg>
+
+    <p>Following is an example of SVG using line</p>
+    <svg width="500" height="200">
+        <line x1="100" y1="50" x2="500" y2="50" stroke="black"/>
+    </svg>
+
+    <p>Following is an example of SVG drawn using DOM manipulation</p>
+    <div id="cooked_svg"></div>
+
+
+    <script>
+        var width = 500;
+        var height = 500;
+    
+        //Create SVG element
+        var svg = d3.select("#cooked_svg")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+    
+        //Create line element inside SVG
+        svg.append("line")
+           .attr("x1", 100)
+           .attr("x2", 500)
+           .attr("y1", 150)
+           .attr("y2", 50)
+           .attr("stroke", "black")
+    </script>
+</body>
+
+</html>
