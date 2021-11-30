@@ -1,0 +1,52 @@
+<html>
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        svg rect {
+            fill: orange;
+        }
+
+        svg text {
+             fill:white;
+            font: 10px sans-serif;
+            text-anchor: end;
+        }
+    </style>
+</head>
+<body>
+<script>
+        var data = [5, 10, 12]; //defines our data array.
+        var width = 200, //Width of the svg
+        scaleFactor = 10, //Since our data values are too small, they need to be scaled to a pixel value that is visible on the screen.
+        barHeight = 20; //This is the static height of our horizontal bars.
+
+        var graph = d3.select("body") //select the document body and 
+                  .append("svg") //create a new SVG element and append it
+                  .attr("width", width) //set the width and height of our SVG
+                  .attr("height", barHeight * data.length); //We have taken 20 as bar height and data array length is 3. So SVG height would be 60 px.
+
+
+
+        var bar = graph.selectAll("g") 
+                  .data(data)
+                  .enter() //we create our group elements. 
+                  .append("g")
+                  .attr("transform", function(d, i) { //We also apply the translate transformation here.
+                        return "translate(0," + i * barHeight + ")"; //our translation formula will be (current element index * bar height).
+                  });
+
+    bar.append("rect") //we have our group elements ready, we will add the <rect> element for each bar.
+       .attr("width", function(d) {
+                return d * scaleFactor; //it a width of (data value * scale factor) 
+       })
+       .attr("height", barHeight - 1); //height is (bar height - margin)
+
+    bar.append("text") //we want to display our data values as text on each bar. 
+       .attr("x", function(d) { return (d*scaleFactor); }) //Width is defined as (data value * scalefactor)
+       .attr("y", barHeight / 2)
+       .attr("dy", ".35em") //Text elements do not support padding or margin. For this reason, we need to give it a "dy" offset. This is used to align the text vertically.
+       .text(function(d) { return d; });
+
+</script>
+</body>
+</html>
